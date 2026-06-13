@@ -5,9 +5,11 @@ import { Resend } from "resend";
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function getSupabase() {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  console.log("Supabase connection check:", { url: !!url, key: !!key });
+  // ВРЕМЕННО: хардкод для теста
+  const url = "https://ojhkxahzyzarpqtnmsxh.supabase.co";
+  const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9qaGt4YWh6eXphcnBxdG5tc3hoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzNjA4NzIsImV4cCI6MjA5NjkzNjg3Mn0.tIsKmoZdIou1Z2uq7OQqnrTJUbwnatdTCemi2pyFC8Y";
+  
+  console.log("Supabase connection check (hardcoded):", { url: !!url, key: !!key });
   if (!url || !key) return null;
   return createClient(url, key);
 }
