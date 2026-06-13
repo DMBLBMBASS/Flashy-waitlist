@@ -1,0 +1,135 @@
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.inputRow {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--line-bright);
+  border-radius: 999px;
+  padding: 6px 6px 6px 24px;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.inputRow:focus-within {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 4px rgba(245, 245, 240, 0.06);
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  outline: none;
+  min-width: 0;
+}
+
+.input::placeholder {
+  color: var(--ink-dim);
+}
+
+.submit {
+  flex-shrink: 0;
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.submit:hover:not(:disabled) {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.errorText {
+  color: #ff8a8a;
+  font-size: 0.82rem;
+}
+
+.infoText {
+  color: var(--ink-dim);
+  font-size: 0.82rem;
+}
+
+.fineprint {
+  color: var(--ink-dim);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+}
+
+.successCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid var(--line-bright);
+  border-radius: 18px;
+  padding: 40px 32px;
+  width: 100%;
+  background: var(--bg-elevated);
+  animation: fadeIn 0.6s ease both;
+}
+
+.successMark {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.successCard p {
+  font-size: 0.95rem;
+  color: var(--ink-dim);
+  line-height: 1.6;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 540px) {
+  .inputRow {
+    flex-direction: column;
+    border-radius: 18px;
+    padding: 16px;
+    gap: 12px;
+  }
+  .submit {
+    width: 100%;
+  }
+  .input {
+    padding: 4px 4px;
+  }
+}

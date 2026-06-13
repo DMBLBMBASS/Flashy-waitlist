@@ -1,0 +1,267 @@
+.stage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  perspective: 1600px;
+}
+
+.card {
+  width: min(620px, 100%);
+  min-height: 360px;
+  background: linear-gradient(165deg, #111111 0%, #060606 100%);
+  border: 1px solid var(--line-bright);
+  border-radius: 22px;
+  padding: 26px 28px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  box-shadow:
+    0 40px 80px -30px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line-bright);
+}
+
+.cardTitle {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.cardTag {
+  margin-left: auto;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--ink);
+  padding: 4px 10px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cardTag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--bg);
+  animation: pulse 1.6s infinite ease-in-out;
+}
+
+.cardBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 200px;
+}
+
+/* Source block */
+
+.sourceBlock {
+  animation: fadeIn 0.6s ease both;
+}
+
+.sourceLabel {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin-bottom: 14px;
+}
+
+.sourceText {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  line-height: 1.55;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.highlight {
+  color: var(--bg);
+  background: var(--ink);
+  padding: 0 6px;
+  border-radius: 4px;
+  font-style: italic;
+}
+
+.sourceFooter {
+  margin-top: 18px;
+  font-size: 0.75rem;
+  color: var(--ink-dim);
+  letter-spacing: 0.04em;
+}
+
+/* Bubbles */
+
+.bubbleColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bubble {
+  align-self: flex-start;
+  max-width: 92%;
+  background: rgba(245, 245, 240, 0.05);
+  border: 1px solid var(--line-bright);
+  border-radius: 14px 14px 14px 4px;
+  padding: 16px 18px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  animation: bubbleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.bubble strong {
+  font-family: var(--display);
+  font-style: italic;
+}
+
+.bubbleReply {
+  align-self: flex-end;
+  max-width: 80%;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 14px 14px 4px 14px;
+  padding: 14px 18px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  animation: bubbleIn 0.5s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.replyTag {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.66rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  opacity: 0.6;
+}
+
+.context {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--ink-dim);
+  font-style: italic;
+}
+
+.meaning {
+  font-family: var(--display);
+  font-size: 1.05rem;
+}
+
+.choices {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+  animation: fadeIn 0.6s 0.3s ease both;
+}
+
+.choiceYes,
+.choiceNo {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line-bright);
+  color: var(--ink-dim);
+}
+
+.confirm {
+  align-self: flex-end;
+  font-size: 0.78rem;
+  color: var(--ink-dim);
+  letter-spacing: 0.03em;
+  animation: fadeIn 0.6s 0.3s ease both;
+}
+
+/* Progress */
+
+.progress {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.progressDot,
+.progressDotActive {
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--line-bright);
+  transition: background 0.4s ease, width 0.4s ease;
+}
+
+.progressDotActive {
+  background: var(--ink);
+  width: 36px;
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bubbleIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 540px) {
+  .card {
+    padding: 20px 18px;
+    min-height: 320px;
+  }
+  .sourceText {
+    font-size: 1.1rem;
+  }
+}
